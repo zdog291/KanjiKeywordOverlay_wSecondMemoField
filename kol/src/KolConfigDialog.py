@@ -120,6 +120,9 @@ class KolConfigDlg(QDialog):
         gui.cboMemoStory.clear()
         gui.cboMemoStory.addItems(fieldNames)
 
+        gui.cboYomiStory.clear()
+        gui.cboYomiStory.addItems(fieldNames)
+
     def __updateGuiFromConfig(self, ProfileName):
         print("DEBUG: updateGuiFromConfig")
         gui = self.__gui
@@ -138,6 +141,7 @@ class KolConfigDlg(QDialog):
             gui.cboOnYomi.setEditText(curProf.kanjiOnYomi)
             gui.cboKunYomi.setEditText(curProf.kanjiKunYomi)
             gui.cboMemoStory.setEditText(curProf.kanjiMemoStory)
+            gui.cboYomiStory.setEditText(curProf.kanjiYomiStory)
 
             gui.chkUseCustomDeck.setChecked(curProf.kanjiCustomProfileEnabled)
             gui.chkAlsoLoadDefaultDB.setChecked(curProf.kanjiLoadDefaultValuesForNonExistingValues)
@@ -146,6 +150,7 @@ class KolConfigDlg(QDialog):
             gui.chkOnYomi.setChecked(curProf.kanjiOnYomiEnabled)
             gui.chkKunYomi.setChecked(curProf.kanjiKunYomiEnabled)
             gui.chkMemoStory.setChecked(curProf.kanjiMemoStoryEnabled)
+            gui.chkYomiStory.setChecked(curProf.kanjiYomiStoryEnabled)
 
             gui.editKanjiLink.setText(curProf.kanjiUseLinkUrl)
             gui.editKanjiLink.setEnabled(gui.chkKanjiLink.isChecked())
@@ -156,6 +161,7 @@ class KolConfigDlg(QDialog):
             gui.cboOnYomi.setEnabled(gui.chkOnYomi.isChecked())
             gui.cboKunYomi.setEnabled(gui.chkKunYomi.isChecked())
             gui.cboMemoStory.setEnabled(gui.chkMemoStory.isChecked())
+            gui.cboYomiStory.setEnabled(gui.chkYomiStory.isChecked())
 
         else:
             print("current profile could not be found")
@@ -182,7 +188,7 @@ class KolConfigDlg(QDialog):
             curProf.kanjiOnYomi = gui.cboOnYomi.currentText()
             curProf.kanjiKunYomi = gui.cboKunYomi.currentText()
             curProf.kanjiMemoStory = gui.cboMemoStory.currentText()
-
+            curProf.kanjiYomiStory = gui.cboYomiStory.currentText()
             curProf.kanjiCustomProfileEnabled = gui.chkUseCustomDeck.isChecked()
             curProf.kanjiLoadDefaultValuesForNonExistingValues = gui.chkAlsoLoadDefaultDB.isChecked()
             curProf.kanjiShowColorsForKnownKanji = gui.chkColorizeKanjis.isChecked()
@@ -190,6 +196,7 @@ class KolConfigDlg(QDialog):
             curProf.kanjiOnYomiEnabled = gui.chkOnYomi.isChecked()
             curProf.kanjiKunYomiEnabled = gui.chkKunYomi.isChecked()
             curProf.kanjiMemoStoryEnabled = gui.chkMemoStory.isChecked()
+            curProf.kanjiYomiStoryEnabled = gui.chkYomiStory.isChecked()
 
             curProf.kanjiUseLinkUrl = gui.editKanjiLink.text()
             # print("DEBUG: update from gui ok - updated profile: " + curProf.ProfileName)
@@ -212,6 +219,9 @@ class KolConfigDlg(QDialog):
 
     def chkMemoStoryHandler(self):
         self.__gui.cboMemoStory.setEnabled(self.__gui.chkMemoStory.isChecked())
+
+    def chkYomiStoryHandler(self):
+        self.__gui.cboYomiStory.setEnabled(self.__gui.chkYomiStory.isChecked())
 
     def chkUserCustomDeckHandler(self):
         gui = self.__gui

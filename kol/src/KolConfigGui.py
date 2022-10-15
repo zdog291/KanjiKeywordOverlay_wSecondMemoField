@@ -91,6 +91,9 @@ class Ui_Dialog(object):
         self.chkMemoStory = QtWidgets.QCheckBox(self.gpbKanjiData)
         self.chkMemoStory.setObjectName("chkMemoStory")
         self.verticalLayout_12.addWidget(self.chkMemoStory)
+        self.chkYomiStory = QtWidgets.QCheckBox(self.gpbKanjiData)
+        self.chkYomiStory.setObjectName("chkYomiStory")
+        self.verticalLayout_12.addWidget(self.chkYomiStory)
         self.horizontalLayout_6.addLayout(self.verticalLayout_12)
         self.verticalLayout_13 = QtWidgets.QVBoxLayout()
         self.verticalLayout_13.setObjectName("verticalLayout_13")
@@ -120,6 +123,11 @@ class Ui_Dialog(object):
         self.cboMemoStory.setEditable(True)
         self.cboMemoStory.setObjectName("cboMemoStory")
         self.verticalLayout_13.addWidget(self.cboMemoStory)
+        self.cboYomiStory = QtWidgets.QComboBox(self.gpbKanjiData)
+        self.cboYomiStory.setEnabled(False)
+        self.cboYomiStory.setEditable(True)
+        self.cboYomiStory.setObjectName("cboYomiStory")
+        self.verticalLayout_13.addWidget(self.cboYomiStory)
         self.horizontalLayout_6.addLayout(self.verticalLayout_13)
         self.verticalLayout_11.addLayout(self.horizontalLayout_6)
         self.verticalLayout_5.addWidget(self.gpbKanjiData)
@@ -182,6 +190,7 @@ class Ui_Dialog(object):
         self.chkOnYomi.stateChanged['int'].connect(Dialog.chkOnYomiHandler)
         self.chkKunYomi.stateChanged['int'].connect(Dialog.chkKunYomiHandler)
         self.chkMemoStory.stateChanged['int'].connect(Dialog.chkMemoStoryHandler)
+        self.chkYomiStory.stateChanged['int'].connect(Dialog.chkYomiStoryHandler)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
@@ -196,6 +205,7 @@ class Ui_Dialog(object):
         self.chkOnYomi.setText(_translate("Dialog", "Field with on yomi"))
         self.chkKunYomi.setText(_translate("Dialog", "Field with kun yomi"))
         self.chkMemoStory.setText(_translate("Dialog", "Field with memo story"))
+        self.chkYomiStory.setText(_translate("Dialog", "Field with reading story"))
         self.gpbAdvanced.setTitle(_translate("Dialog", "Advanced"))
         self.chkAlsoLoadDefaultDB.setText(_translate("Dialog", "show default values for not existing values \n"
 "(no differnent stlyes will be available then)"))

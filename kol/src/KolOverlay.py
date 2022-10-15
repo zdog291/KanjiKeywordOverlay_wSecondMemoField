@@ -241,11 +241,15 @@ class KanjiOverlay:
             if self.profile.kanjiKunYomiEnabled:
                 context["kol-kunYomi"] = self.__getValue(context, self.profile.kanjiKunYomi) or self.__getValue(context, "kunYomi")
 
+            if self.profile.kanjiYomiStoryEnabled:
+                context["kol-yomiStory"] = self.__getValue(context, self.profile.kanjiYomiStory) 
+
             if self.profile.kanjiMemoStoryEnabled:
                 context["kol-memoStory"] = self.__getValue(context, self.profile.kanjiMemoStory) or self.__getValue(context, "heisigStory")
         else:
             context = dict()
             context["kol-class"] = self.__CssClassOfUnknownKanji
+
 
         context["kol-kanji"] = kanji
         context["kol-kanjiLink"] = self.__getKanjiUrl(kanji)
