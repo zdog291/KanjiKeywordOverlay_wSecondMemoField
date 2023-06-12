@@ -15,6 +15,8 @@ class KolConfig():
                  kanjiOnYomiEnabled=True,
                  kanjiKunYomi="",
                  kanjiKunYomiEnabled=True,
+                 kanjiRadicals="",
+                 kanjiRadicalsEnabled=True,
                  kanjiMemoStory="",
                  kanjiMemoStoryEnabled=False,
                  kanjiYomiStory="",
@@ -34,6 +36,8 @@ class KolConfig():
         self.kanjiOnYomiEnabled = kanjiOnYomiEnabled
         self.kanjiKunYomi = kanjiKunYomi
         self.kanjiKunYomiEnabled = kanjiKunYomiEnabled
+        self.kanjiRadicals = kanjiRadicals
+        self.kanjiRadicalsEnabled = kanjiRadicalsEnabled
         self.kanjiMemoStory = kanjiMemoStory
         self.kanjiMemoStoryEnabled = kanjiMemoStoryEnabled
         self.kanjiYomiStory = kanjiYomiStory

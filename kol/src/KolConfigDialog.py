@@ -117,6 +117,9 @@ class KolConfigDlg(QDialog):
         gui.cboKunYomi.clear()
         gui.cboKunYomi.addItems(fieldNames)
 
+        gui.cboRadicals.clear()
+        gui.cboRadicals.addItems(fieldNames)
+
         gui.cboMemoStory.clear()
         gui.cboMemoStory.addItems(fieldNames)
 
@@ -140,6 +143,7 @@ class KolConfigDlg(QDialog):
             gui.cboCustomKeyword.setEditText(curProf.kanjiKeyword)
             gui.cboOnYomi.setEditText(curProf.kanjiOnYomi)
             gui.cboKunYomi.setEditText(curProf.kanjiKunYomi)
+            gui.cboRadicals.setEditText(curProf.kanjiRadicals)
             gui.cboMemoStory.setEditText(curProf.kanjiMemoStory)
             gui.cboYomiStory.setEditText(curProf.kanjiYomiStory)
 
@@ -149,6 +153,7 @@ class KolConfigDlg(QDialog):
             gui.chkKanjiLink.setChecked(curProf.kanjiUseLink)
             gui.chkOnYomi.setChecked(curProf.kanjiOnYomiEnabled)
             gui.chkKunYomi.setChecked(curProf.kanjiKunYomiEnabled)
+            gui.chkRadicals.setChecked(curProf.kanjiRadicalsEnabled)
             gui.chkMemoStory.setChecked(curProf.kanjiMemoStoryEnabled)
             gui.chkYomiStory.setChecked(curProf.kanjiYomiStoryEnabled)
 
@@ -160,6 +165,7 @@ class KolConfigDlg(QDialog):
 
             gui.cboOnYomi.setEnabled(gui.chkOnYomi.isChecked())
             gui.cboKunYomi.setEnabled(gui.chkKunYomi.isChecked())
+            gui.cboRadicals.setEnabled(gui.chkRadicals.isChecked())
             gui.cboMemoStory.setEnabled(gui.chkMemoStory.isChecked())
             gui.cboYomiStory.setEnabled(gui.chkYomiStory.isChecked())
 
@@ -187,6 +193,7 @@ class KolConfigDlg(QDialog):
             curProf.kanjiKeyword = gui.cboCustomKeyword.currentText()
             curProf.kanjiOnYomi = gui.cboOnYomi.currentText()
             curProf.kanjiKunYomi = gui.cboKunYomi.currentText()
+            curProf.kanjiRadicals = gui.cboRadicals.currentText()
             curProf.kanjiMemoStory = gui.cboMemoStory.currentText()
             curProf.kanjiYomiStory = gui.cboYomiStory.currentText()
             curProf.kanjiCustomProfileEnabled = gui.chkUseCustomDeck.isChecked()
@@ -194,6 +201,7 @@ class KolConfigDlg(QDialog):
             curProf.kanjiShowColorsForKnownKanji = gui.chkColorizeKanjis.isChecked()
             curProf.kanjiUseLink = gui.chkKanjiLink.isChecked()
             curProf.kanjiOnYomiEnabled = gui.chkOnYomi.isChecked()
+            curProf.kanjiRadicalsEnabled = gui.chkRadicals.isChecked()
             curProf.kanjiKunYomiEnabled = gui.chkKunYomi.isChecked()
             curProf.kanjiMemoStoryEnabled = gui.chkMemoStory.isChecked()
             curProf.kanjiYomiStoryEnabled = gui.chkYomiStory.isChecked()
@@ -216,6 +224,9 @@ class KolConfigDlg(QDialog):
 
     def chkKunYomiHandler(self):
         self.__gui.cboKunYomi.setEnabled(self.__gui.chkKunYomi.isChecked())
+
+    def chkRadicalsHandler(self):
+        self.__gui.cboRadicals.setEnabled(self.__gui.chkRadicals.isChecked())
 
     def chkMemoStoryHandler(self):
         self.__gui.cboMemoStory.setEnabled(self.__gui.chkMemoStory.isChecked())

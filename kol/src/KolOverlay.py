@@ -210,7 +210,7 @@ class KanjiOverlay:
     def injectKanjiOverlay(self, txt, *args):
         def remap():
             for c in txt:
-                if c >= u"\u4E00" and c <= u"\u9FBF":  # Kanji
+                if c >= u"\u3400" and c <= u"\u9FFF":  # Kanji
                     yield self.__createHtml(c)
                 else:
                     yield c
@@ -240,6 +240,9 @@ class KanjiOverlay:
 
             if self.profile.kanjiKunYomiEnabled:
                 context["kol-kunYomi"] = self.__getValue(context, self.profile.kanjiKunYomi) or self.__getValue(context, "kunYomi")
+
+            if self.profile.kanjiRadicalsEnabled:
+                context["kol-radicals"] = self.__getValue(context, self.profile.kanjiRadicals) 
 
             if self.profile.kanjiYomiStoryEnabled:
                 context["kol-yomiStory"] = self.__getValue(context, self.profile.kanjiYomiStory) 
